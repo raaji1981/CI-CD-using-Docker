@@ -5,14 +5,14 @@ pipeline {
       stage('checkout') {
            steps {
              
-                git branch: 'master', url: 'https://github.com/raaji1981/CI-CD-using-Docker.git'
+		   git credentialsId: '51e494d8-a75a-471e-85f3-ec5c1fe0b698',branch: 'master', url: 'https://github.com/raaji1981/CI-CD-using-Docker.git'
              
           }
         }
 	 stage('Execute Maven') {
            steps {
              
-                sh 'mvn package'             
+                sh 'mvn clean install package'             
           }
         }
         
